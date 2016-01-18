@@ -313,6 +313,8 @@ function matio.load(filename, name)
       table.insert(names, var_name_str)
       var = mat.varReadNextInfo(file)
     end
+    mat.close(file)
+    file = mat.open(filename, mat.ACC_RDONLY)
   end
 
   if #names == 0 then
